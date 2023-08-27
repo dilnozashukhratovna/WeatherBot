@@ -8,8 +8,7 @@ import {
   Action,
 } from 'nestjs-telegraf';
 import { BotService } from './bot.service';
-import { Context, Markup } from 'telegraf';
-import { inlineKeyboard } from 'telegraf/typings/markup';
+import { Context } from 'telegraf';
 import { API_KEY, BOT_NAME } from '../app.constants';
 import axios from 'axios';
 
@@ -119,6 +118,4 @@ export class BotUpdate {
       🌆 Sunset: ${sunsetTime}
   `;
   }
-
- 
 }
