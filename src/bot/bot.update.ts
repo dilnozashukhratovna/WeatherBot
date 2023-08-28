@@ -41,7 +41,8 @@ export class BotUpdate {
     const botName = BOT_NAME;
     const description = `A weather bot that provides weather information.`;
     const contact =
-      '\n\n📩email: someone@gmail.com\n\n📞phone number: +998-99-999-99-99';
+      '\n\n       📩email: someone@gmail.com\
+       \n\n       📞phone number: +998-99-999-99-99';
 
     return `🤖Bot Name: ${botName}\n\n📋Description: ${description}\n\n👤Author contact info: ${contact}`;
   }
@@ -101,6 +102,7 @@ export class BotUpdate {
     const sunsetTime = new Date(
       weatherData.sys.sunset * 1000,
     ).toLocaleTimeString();
+    const visibility = weatherData.visibility;
 
     return `
     Weather in ${weatherData.name}:
@@ -112,6 +114,8 @@ export class BotUpdate {
       💨 Wind speed: ${windSpeed} km/h
 
       ☁️ Weather: ${weatherDescription}
+
+      👁️ Visibility: ${visibility} km
 
       🌅 Sunrise: ${sunriseTime}
 
