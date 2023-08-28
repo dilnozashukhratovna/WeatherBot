@@ -93,29 +93,26 @@ export class BotUpdate {
   private createWeatherMessage(weatherData: any) {
     console.log(weatherData);
     const temperature = weatherData.main.temp;
-    const humidity = weatherData.main.humidity;
     const windSpeed = weatherData.wind.speed;
     const weatherDescription = weatherData.weather[0].description;
+    const pressure = weatherData.main.pressure;
     const sunriseTime = new Date(
       weatherData.sys.sunrise * 1000,
-    ).toLocaleTimeString();
+    ).toLocaleTimeString('en-US', { timeStyle: 'short' });
     const sunsetTime = new Date(
       weatherData.sys.sunset * 1000,
-    ).toLocaleTimeString();
-    const visibility = weatherData.visibility;
+    ).toLocaleTimeString('en-US', { timeStyle: 'short' });
 
     return `
     Weather in ${weatherData.name}:
 
+      ⛅️ Weather: ${weatherDescription}
+
       🌡️ Temperature: ${temperature}°C
 
-      💧 Humidity: ${humidity}%
+      💨 Wind speed: ${windSpeed} m/s
 
-      💨 Wind speed: ${windSpeed} km/h
-
-      ☁️ Weather: ${weatherDescription}
-
-      👁️ Visibility: ${visibility} km
+      🕛 Pressure: ${pressure} hPa
 
       🌅 Sunrise: ${sunriseTime}
 
